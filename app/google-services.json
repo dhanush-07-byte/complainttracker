@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "71652859892",
+    "firebase_url": "https://aadhi-complainttracker-default-rtdb.firebaseio.com",
+    "project_id": "aadhi-complainttracker",
+    "storage_bucket": "aadhi-complainttracker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71652859892:android:a90f0bdda610066db023a1",
+        "android_client_info": {
+          "package_name": "com.example.complainttracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXKmxPueieKaAObNhaImA8DeWEUCBYs9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
