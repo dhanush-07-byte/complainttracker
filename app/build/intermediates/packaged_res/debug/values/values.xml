@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">complainttracker</string>
+    <string name="firebase_database_url" translatable="false">https://aadhi-complainttracker-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">71652859892</string>
+    <string name="google_api_key" translatable="false">AIzaSyBXKmxPueieKaAObNhaImA8DeWEUCBYs9s</string>
+    <string name="google_app_id" translatable="false">1:71652859892:android:a90f0bdda610066db023a1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBXKmxPueieKaAObNhaImA8DeWEUCBYs9s</string>
+    <string name="google_storage_bucket" translatable="false">aadhi-complainttracker.firebasestorage.app</string>
+    <string name="project_id" translatable="false">aadhi-complainttracker</string>
+    <style name="Base.Theme.Complainttracker" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.Complainttracker" parent="Base.Theme.Complainttracker"/>
+</resources>

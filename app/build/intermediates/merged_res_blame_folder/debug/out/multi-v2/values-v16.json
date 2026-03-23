@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.complainttracker.app-mergeDebugResources-61:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ELCOT\\.gradle\\caches\\8.10.2\\transforms\\f74fa02ac212183737699a3673b5d68f\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    }
+                }
+            ]
+        }
+    ]
+}
