@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import com.example.complainttracker.models.Complaint
 import com.example.complainttracker.ui.screens.*
 import com.example.complainttracker.ui.theme.ComplaintTrackerTheme
 
@@ -30,6 +31,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ComplaintTrackerApp() {
     var currentScreen by remember { mutableStateOf("login") }
+    var selectedComplaint by remember { mutableStateOf<Complaint?>(null) }
 
     when (currentScreen) {
         "login" -> {
@@ -48,12 +50,29 @@ fun ComplaintTrackerApp() {
             HomeScreen(
                 onLogout = { currentScreen = "login" },
                 onAddComplaint = { currentScreen = "add_complaint" },
-                onComplaintClick = { currentScreen = "home" }
+                onComplaintClick = { complaint ->
+                    selectedComplaint = complaint
+                    currentScreen = "detail"
+                },
+                onManageUsers = { currentScreen = "manage_users" }
             )
         }
         "add_complaint" -> {
             AddComplaintScreen(
                 onComplaintAdded = { currentScreen = "home" }
+            )
+        }
+        "detail" -> {
+            selectedComplaint?.let { complaint ->
+                ComplaintDetailScreen(
+                    complaint = complaint,
+                    onBack = { currentScreen = "home" }
+                )
+            }
+        }
+        "manage_users" -> {
+            UserManagementScreen(
+                onBack = { currentScreen = "home" }
             )
         }
     }

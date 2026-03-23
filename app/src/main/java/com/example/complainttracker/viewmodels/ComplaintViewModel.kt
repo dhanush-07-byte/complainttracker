@@ -23,24 +23,43 @@ class ComplaintViewModel : ViewModel() {
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
+    private val _currentUserRole = MutableStateFlow<String?>("student") // Default
+    val currentUserRole: StateFlow<String?> = _currentUserRole.asStateFlow()
+
     init {
-        loadComplaints()
+        loadUserRoleAndComplaints()
     }
 
-    private fun loadComplaints() {
+    private fun loadUserRoleAndComplaints() {
         viewModelScope.launch {
             _isLoading.value = true
             val userId = authService.getCurrentUserId()
             if (userId != null) {
-                complaintService.getUserComplaints(userId)
-                    .catch { _ ->
-                        _isLoading.value = false
-                        _complaints.value = emptyList()
-                    }
-                    .collect { complaintsList ->
-                        _complaints.value = complaintsList
-                        _isLoading.value = false
-                    }
+                val user = userService.getUserProfile(userId)
+                val role = user?.role ?: "student"
+                _currentUserRole.value = role
+
+                if (role == "admin" || role == "manager") {
+                    complaintService.getAllComplaints()
+                        .catch { _ ->
+                            _isLoading.value = false
+                            _complaints.value = emptyList()
+                        }
+                        .collect { complaintsList ->
+                            _complaints.value = complaintsList
+                            _isLoading.value = false
+                        }
+                } else {
+                    complaintService.getUserComplaints(userId)
+                        .catch { _ ->
+                            _isLoading.value = false
+                            _complaints.value = emptyList()
+                        }
+                        .collect { complaintsList ->
+                            _complaints.value = complaintsList
+                            _isLoading.value = false
+                        }
+                }
             } else {
                 _isLoading.value = false
             }
@@ -73,6 +92,38 @@ class ComplaintViewModel : ViewModel() {
                 _isLoading.value = false
                 callback(false, error.message)
             }
+        }
+    }
+
+    fun updateStatus(complaintId: String, status: String, remarks: String? = null) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            complaintService.updateComplaintStatus(complaintId, status, remarks)
+            _isLoading.value = false
+        }
+    }
+
+    fun addReply(complaintId: String, reply: String) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            complaintService.addAdminReply(complaintId, reply)
+            _isLoading.value = false
+        }
+    }
+
+    fun submitFeedback(complaintId: String, feedback: String, rating: Int) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            complaintService.addUserFeedback(complaintId, feedback, rating)
+            _isLoading.value = false
+        }
+    }
+
+    fun alertUnattended(complaintId: String) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            complaintService.markAsAlerted(complaintId)
+            _isLoading.value = false
         }
     }
 

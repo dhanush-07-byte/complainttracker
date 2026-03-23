@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f49d837-c8ac-46a3-be8b-5684a118a91a" name="Changes" comment="Final project fix">
-      <changelist_data name="dhanush-07-byte" email="dhanushkumar14062006@gmail.com" automatic="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/complainttracker/viewmodels/AuthViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/complainttracker/viewmodels/AuthViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/complainttracker/viewmodels/ComplaintViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/complainttracker/viewmodels/ComplaintViewModel.kt" afterDir="false" />
     </list>
@@ -50,12 +49,12 @@
     &quot;assignee&quot;: &quot;dhanush-07-byte&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/dhanush-07-byte/complainttracker.git&quot;,
-    &quot;accountId&quot;: &quot;bb0b8759-44f7-4549-be9c-e4c7bde2140c&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/dhanush-07-byte/complainttracker.git",
+    "accountId": "dc97cd17-0242-42ec-ad8e-bb0f36fbd337"
   }
-}</component>
+}]]></component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\PracticalExam\.gradle\wrapper\dists\gradle-8.13-bin\5xuhj0ry160q40clulazy9h7d\gradle-8.13" javaHome="C:\Program Files\Android\Android Studio\jbr" gradleVersion="8.13" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -179,8 +178,27 @@
       <option name="project" value="LOCAL" />
       <updated>1774149987704</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Final project fix">
+      <option name="closed" value="true" />
+      <created>1774260123112</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774260123113</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />

@@ -108,7 +108,7 @@ fun SignUpScreen(
                 }
 
                 isLoading = true
-                viewModel.signUp(email, password, name) { success, error ->
+                viewModel.signUp(email, password, name, phone) { success, error ->
                     isLoading = false
                     if (success) {
                         onSignUpSuccess()

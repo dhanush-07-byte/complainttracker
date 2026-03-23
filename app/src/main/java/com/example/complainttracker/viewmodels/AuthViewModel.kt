@@ -19,9 +19,9 @@ class AuthViewModel : ViewModel() {
         }
     }
 
-    fun signUp(email: String, password: String, name: String, callback: (Boolean, String?) -> Unit) {
+    fun signUp(email: String, password: String, name: String, phone: String, callback: (Boolean, String?) -> Unit) {
         viewModelScope.launch {
-            val result = authService.signUp(email, password, name)
+            val result = authService.signUp(email, password, name, phone)
             result.onSuccess {
                 callback(true, null)
             }.onFailure { error ->

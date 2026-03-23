@@ -7,13 +7,14 @@ import kotlinx.coroutines.tasks.await
 
 class AuthService {
     private val auth: FirebaseAuth = Firebase.auth
+    private val userService = UserService()
 
-    suspend fun signUp(email: String, password: String, name: String): Result<String> {
+    suspend fun signUp(email: String, password: String, name: String, phone: String): Result<String> {
         return try {
             val result = auth.createUserWithEmailAndPassword(email, password).await()
             result.user?.let { user ->
-                val userService = UserService()
-                userService.createUserProfile(user.uid, name, email)
+                // Default role is "student"
+                userService.createUserProfile(user.uid, name, email, phone, "student")
                 Result.success(user.uid)
             } ?: Result.failure(Exception("User creation failed"))
         } catch (e: Exception) {
