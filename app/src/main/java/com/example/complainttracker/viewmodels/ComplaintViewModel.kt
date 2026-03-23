@@ -9,6 +9,7 @@ import com.example.complainttracker.services.UserService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
 class ComplaintViewModel : ViewModel() {
@@ -31,10 +32,17 @@ class ComplaintViewModel : ViewModel() {
             _isLoading.value = true
             val userId = authService.getCurrentUserId()
             if (userId != null) {
-                complaintService.getUserComplaints(userId).collect { complaintsList ->
-                    _complaints.value = complaintsList
-                    _isLoading.value = false
-                }
+                complaintService.getUserComplaints(userId)
+                    .catch { _ ->
+                        _isLoading.value = false
+                        _complaints.value = emptyList()
+                    }
+                    .collect { complaintsList ->
+                        _complaints.value = complaintsList
+                        _isLoading.value = false
+                    }
+            } else {
+                _isLoading.value = false
             }
         }
     }

@@ -14,7 +14,7 @@ class AuthViewModel : ViewModel() {
             result.onSuccess {
                 callback(true, null)
             }.onFailure { error ->
-                callback(false, error.message)
+                callback(false, error.message ?: "An unknown login error occurred")
             }
         }
     }
@@ -25,7 +25,7 @@ class AuthViewModel : ViewModel() {
             result.onSuccess {
                 callback(true, null)
             }.onFailure { error ->
-                callback(false, error.message)
+                callback(false, error.message ?: "An unknown registration error occurred")
             }
         }
     }
